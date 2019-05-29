@@ -17,11 +17,8 @@ window.onload=function(){
 		var id=obj.id;
 		d=localStorage.getItem("d")
 		if(!d){
-
 			localStorage.setItem("d",obj.user_id)
 		}
-
-		console.log(localStorage.getItem("d"))
 	function pershop(){
 		var url = window.location.href;
 		var num=url.indexOf("?")
@@ -35,7 +32,9 @@ window.onload=function(){
 			obj[key]=value;
 		}
 		var id=obj.id;
+		// 团购
 		$(".zhiShop1").click(function(){
+			localStorage.setItem("odd","1")
 			if(localStorage.getItem("tishi")){
 					$.ajax({
 						url:"http://s.coolndns.com/pay",
@@ -53,7 +52,7 @@ window.onload=function(){
 						}
 					})
 			}else{
-				alert("请先登录！在购买！")
+				alert("请先登录！再购买！")
 				location.href="login.html"
 			}
 		})
@@ -72,30 +71,30 @@ window.onload=function(){
 			var value=c[1]
 			obj[key]=value;
 		}
-
 		var id=obj.id;
-			$(".zhiShop").click(function(){
-				if(localStorage.getItem("tishi")){
-						$.ajax({
-							url:"http://s.coolndns.com/pay",
-							type:"post",
-							data:{
-								column_id:id,
-								group_master_id:0,
-								is_group:0,
-								token:localStorage.getItem("token")
-							},
-							success(res){
-								if(res){
-									window.open("zhifubao.html"+"?id="+id)	
-								}
+		$(".zhiShop").click(function(){
+			localStorage.setItem("odd","0")
+			if(localStorage.getItem("tishi")){
+					$.ajax({
+						url:"http://s.coolndns.com/pay",
+						type:"post",
+						data:{
+							column_id:id,
+							group_master_id:0,
+							is_group:0,
+							token:localStorage.getItem("token")
+						},
+						success(res){
+							if(res){
+								window.open("zhifubao.html"+"?id="+id)	
 							}
-						})
-				}else{
-					alert("请先登录！在购买！")
-					location.href="login.html"
-				}
-			})
+						}
+					})
+			}else{
+				alert("请先登录！再购买！")
+				location.href="login.html"
+			}
+		})
 	}
 	shopping() 
 	if(localStorage.getItem("tuanend")=="1"){

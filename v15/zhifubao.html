@@ -13,7 +13,11 @@
 			var num=url.indexOf("=")+1;
 			var id=url.slice(num,url.length)
 			localStorage.setItem("column_id",id)
-			console.log(id)
+			if(localStorage.getItem("odd")=="0"){
+				odd=0;
+			}else{
+				odd=1;
+			}
 			if(id){
 				var ids=localStorage.getItem("column_id")
 				$.ajax({
@@ -22,7 +26,7 @@
 					data:{
 						column_id:id,
 						group_master_id:localStorage.getItem("user_id"),
-						is_group:localStorage.getItem("pintuan"),
+						is_group:odd,
 						token:localStorage.getItem("token")
 					},
 					success(res){
