@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微信二维码</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="renderer" content="webkit">
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/min/jquery-v1.10.2.min.js" type="text/javascript"></script>
+	<script src="js/share.js"></script>
+	<style>
+		body{
+			background-color: #000;
+		}
+		img{
+			display: block;
+			width: 100%;
+			overflow: hidden;
+		}
+		.wrap{
+			width: 2.5rem;
+			height: 2.5rem;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%)
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		
+	</div>
+	<script>
+			$.ajax({
+                url:"http://s.coolndns.com/qrcode",
+                type:"get",
+                data:{
+                    url:localStorage.getItem("erurl")+"&user_id="+localStorage.getItem("user_id")
+                },
+                success(res){
+                    if(res){
+                    	$(".wrap").html(res)
+                    }else{
+                    	alert("获取二维码失败")
+                    }
+                }
+       		 }) 
+	</script>
+</body>
+</html>

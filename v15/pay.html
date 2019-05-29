@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>个人中心</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/min/jquery-v1.10.2.min.js" type="text/javascript"></script>
+    <script src="js/style.js"></script>
+    <script src="js/cash.js"></script>
+</head>
+<body>
+	<div class="per-pay">
+		<!-- pc导航栏 -->
+        <div class="nav">
+            <div class="w1 clearfix">
+            <div class="fl logo" style="margin-right: 10px;">
+				<img style="display: block;width: 100%;height: 100%;" src="images/logo.png" alt="">
+			</div>
+                <ul class="fl" id="index">
+                </ul>
+                 <li class="indexTitle"><a href="index.html"></a></li>
+                <ol class="fr">
+                    <li>
+                    	<a href="javascript:void(0)" style="display: block;">
+                    		<div class="denglu">
+                    			个人中心
+                			</div>		
+                		</a>
+                		<div class="sele" >
+                			<p><a href="person-cen.html">个人中心</a></p>
+                			<p><a href="login.html">登录/注册</a></p>
+                			<p><a href="repairPassword.html">修改密码</a></p>
+                			<!-- <p><a href="myList.html">我的订单</a></p> -->
+                            <p><a href="">联系我们</a></p>
+                			<p><a href="javascript:void(0)" class="quit">退出当前账号</a></p>
+                		</div>
+                	</li>
+                </ol>
+            </div>
+        </div>
+		<!--移动端导航栏 -->
+		<div class="naviphone">
+			<div class="w  clearfix">
+				<div class="fr logo clearfix">
+					<img id="logoimg" style="display: block;width: 100%;height: 100%;" src="" alt="">
+				</div>
+				<div id="val" class="fl" style="font-size: 0.18rem;color: #fff;position: relative;line-height: 1.63rem">
+						<div class="denglu">
+                			个人中心
+                			<ul class="denglus">
+                				<li><a href="person-cen.html">个人中心</a></li>
+	            				<li><a href="login.html">登录/注册</a></li>
+	            				<li><a href="repairPassword.html">修改密码</a></li>
+	            				<!-- <li><a href="myList.html">我的订单</a></li> -->
+	            				<li><a href="">联系我们</a></li>
+	            				<li><a href="javascript:void(0)" class="quit">退出当前账号</a></li>
+            				</ul>
+            			</div>
+				</div>
+			</div>
+		</div>
+		<!-- 内容 -->
+		<div class="user-main">
+			<div class="w">
+				<h1>个人中心</h1>
+				<div class="tab">
+					<!-- <form action=""> -->
+						<table border="0" cellspacing="1" style="width: 100%;">
+					        <thead class="tab-select clearfix">
+					        	<tr>
+					        		<td class="clearfix">
+					        				<span id="bgcolor" class="fl bgcolor">提现</span>
+					        				<span id="extract"  class="fl ">提现明细</span>
+					        			<!-- <span id="cash"  class="fl ">订单明细</span> -->
+				        			</td>
+					        	</tr>
+					      	</thead>
+					      	<tbody style="display:block;" class="tab-main">
+				      			<tr>
+				      				<td><input id="amount" type="number" placeholder="提现金额(￥)"></td>
+			      				</tr>
+				      			<tr><td><input id="names" type="text" placeholder="真实姓名"></td></tr>
+				      			<tr>
+				      				<td>
+				      				<select name="" id="way" >
+				      					<option value="0">支付方式</option>
+										<option value="1">微信</option>
+										<option value="2">银行卡</option>
+										<option value="3">支付宝</option>
+				      				</select>
+				      				</td>
+				      			</tr>
+				      			<tr><td><input id="account" type="text" placeholder="微信账号"></td></tr>
+				      			<tr><td><input id="number" type="tel" placeholder="预留手机号"></td></tr>
+				      			<tr class="textarea">
+				      				<td>
+				      				<textarea id="remark" placeholder="会员备注" name="" id="" cols="30" rows="5"></textarea>
+				      				</td>
+				      			</tr>
+								<tr class="anniu">
+									<td>
+										<input style="background-color: #74b72c;" id="submit" class="fl" type="submit" value="提交">
+										<input style="background-color: #333;" id="resets" class="fl" type="button" value="重置">
+									</td>
+								</tr>
+					      	</tbody>
+					      	<tbody class="account-details" id="account-details" style="display: none;">
+					      		<tr class="trfirst">
+					      			<td>提现编号</td>
+					      			<td>提现方式</td>
+					      			<td>手机号</td>
+					      			<td>提现状态</td>
+					      			<td>申请时间</td>
+					      			<td>审核时间</td>
+					      		</tr>
+					      		
+					      	</tbody>
+					      	<tr class="trs">
+				      			<td class="number"></td>
+				      			<td class="way"></td>
+				      			<td class="mou"></td>
+				      			<td class="tel"></td>
+				      			<td class="status"></td>
+				      			<td class="times"></td>
+				      			<td class="timed"></td>
+			      			</tr>
+					      	<!-- <tbody class="cash" style="display: none;">
+					      		<tr>
+					      			<td>操作时间</td>
+					      			<td>类型</td>
+					      			<td>金额</td>
+					      			<td>备注</td>
+					      		</tr>
+					      		<tr>
+					      			<td>2018-4-15</td>
+					      			<td>商品</td>
+					      			<td>188</td>
+					      			<td>备安徽的蓝色的啦</td>
+					      		</tr>
+					      	</tbody> -->
+				      </table>
+					<!-- </form> -->
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+</body>
+</html>

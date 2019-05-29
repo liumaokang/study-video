@@ -1,0 +1,23 @@
+window.onload=function(){
+	new Vue({
+		el:".login",
+		data:{
+			phone:"",
+			oldpassword:"",
+			newpassword:"",
+			password:""
+		},
+		methods:{
+			submit(){
+				this.$http.post("http://s.coolndns.com/newpaw",{
+					phone:this.phone,
+					paw:this.oldpassword,
+					newpaw:this.newpassword,
+					newpaws:this.password,
+				}).then(function(res){
+					console.log(res)
+				})
+			}
+		}
+	})
+}

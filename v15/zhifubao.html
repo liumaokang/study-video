@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>支付宝</title>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="js/pay.js"></script>
+</head>
+<body>
+	  <div class="payPage"></div>
+	  <script>
+	  		var url = window.location.href;
+			var num=url.indexOf("=")+1;
+			var id=url.slice(num,url.length)
+			localStorage.setItem("column_id",id)
+			console.log(id)
+			if(id){
+				var ids=localStorage.getItem("column_id")
+				$.ajax({
+					url:"http://s.coolndns.com/pay",
+					type:"post",
+					data:{
+						column_id:id,
+						group_master_id:localStorage.getItem("user_id"),
+						is_group:localStorage.getItem("pintuan"),
+						token:localStorage.getItem("token")
+					},
+					success(res){
+						if(res){
+							$(".payPage").html(res)
+						}
+					}
+				})
+			}
+			
+	  </script>
+</body>
+</html>
